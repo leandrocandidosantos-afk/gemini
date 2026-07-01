@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyperDrive - O Blog dos Carros Mais Caros</title>
+    <style>
+        /* --- ESTILIZAÇÃO (CSS) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1f2833;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #66fcf1;
+        }
+
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #66fcf1;
+        }
+
+        header nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #66fcf1;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #45f3ff;
+            margin-bottom: 40px;
+        }
+
+        .posts {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #1f2833;
+            border-left: 5px solid #66fcf1;
+            padding: 25px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            color: #66fcf1;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #121212;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 1px solid #1f2833;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">HyperDrive 🏎️</div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Modelos</a>
+            <a href="#">Sobre</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>As Máquinas Mais Caras do Mundo</h1>
+        <p class="subtitle">Conheça os supercarros que ultrapassam as barreiras do design, velocidade e preço.</p>
+
+        <section class="posts">
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1617469767053-d3b503a0b980?auto=format&fit=crop&w=800&q=80" alt="Rolls-Royce Droptail" class="car-image">
+                <h2>1. Rolls-Royce La Rose Noire Droptail</h2>
+                <p class="price">Preço estimado: <strong>$30 Milhões</strong></p>
+                <p>Inspirado no romance e no mistério da rosa francesa 'Black Baccara', este exemplar ultra exclusivo lidera a lista de preços no mundo automotivo de luxo absoluto.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1600706432502-75a0e286b92b?auto=format&fit=crop&w=800&q=80" alt="Bugatti La Voiture Noire" class="car-image">
+                <h2>2. Bugatti La Voiture Noire</h2>
+                <p class="price">Preço estimado: <strong>$18.7 Milhões</strong></p>
+                <p>Uma obra de arte sobre rodas de fibra de carbono preta. Homenagem moderna ao lendário Type 57 SC Atlantic, combinando história com o monstruoso motor W16.</p>
+            </article>
+
+            <article class="card">
+                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" alt="Pagani Zonda HP Barchetta" class="car-image">
+                <h2>3. Pagani Zonda HP Barchetta</h2>
+                <p class="price">Preço estimado: <strong>$17.6 Milhões</strong></p>
+                <p>Com visual agressivo sem teto, para-brisa cortado e rodas traseiras parcialmente cobertas, este Pagani redefine a exclusividade do design italiano.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 HyperDrive Blog. Desenvolvido para amantes da velocidade.</p>
+    </footer>
+
+</body>
+</html>
