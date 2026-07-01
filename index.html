@@ -1,155 +1,307 @@
+HTML
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HyperDrive - O Blog dos Carros Mais Caros</title>
+    <title>HyperDrive | O Portal dos Gearheads</title>
     <style>
-        /* --- ESTILIZAÇÃO (CSS) --- */
+        /* --- CONFIGURAÇÕES GERAIS --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #0b0c10;
-            color: #c5c6c7;
+            background-color: #060709;
+            color: #e2e8f0;
             line-height: 1.6;
         }
 
+        /* --- CABEÇALHO --- */
         header {
-            background-color: #1f2833;
-            padding: 20px 50px;
+            background-color: #0f111a;
+            padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #66fcf1;
+            border-bottom: 2px solid #ff4655;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         header .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #66fcf1;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        header .logo span {
+            color: #ff4655;
         }
 
         header nav a {
-            color: #ffffff;
+            color: #94a3b8;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
             transition: color 0.3s;
         }
 
-        header nav a:hover {
-            color: #66fcf1;
+        header nav a:hover, header nav a.active {
+            color: #ff4655;
         }
 
+        /* --- CONTEÚDO PRINCIPAL --- */
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: 50px auto;
             padding: 0 20px;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
         h1 {
             color: #ffffff;
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 15px;
         }
 
         .subtitle {
-            text-align: center;
-            color: #45f3ff;
-            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        .posts {
+        /* --- FEED DE POSTS (CARDS) --- */
+        .posts-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 40px;
         }
 
         .card {
-            background-color: #1f2833;
-            border-left: 5px solid #66fcf1;
-            padding: 25px;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            background-color: #0f111a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid #1e2235;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #ff4655;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 480px;
+            background-color: #222;
         }
 
         .car-image {
             width: 100%;
-            height: 400px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 20px;
             display: block;
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #ff4655;
+            color: white;
+            padding: 6px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+
+        .card-content {
+            padding: 30px;
         }
 
         .card h2 {
             color: #ffffff;
+            font-size: 1.8rem;
             margin-bottom: 10px;
         }
 
-        .price {
-            color: #66fcf1;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+        .price-tag {
+            color: #ff4655;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(255, 70, 85, 0.1);
+            padding: 4px 12px;
+            border-radius: 6px;
         }
 
+        .description {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        /* Ficha Técnica */
+        .specs-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            background-color: #151824;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .spec-value {
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Interações do Blog */
+        .card-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #1e2235;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .action-btn:hover {
+            color: #ff4655;
+        }
+
+        /* --- RODAPÉ --- */
         footer {
             text-align: center;
-            padding: 30px;
-            background-color: #121212;
-            margin-top: 60px;
+            padding: 40px;
+            background-color: #090a0f;
+            margin-top: 100px;
             font-size: 0.9rem;
-            border-top: 1px solid #1f2833;
+            color: #64748b;
+            border-top: 1px solid #1e2235;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">HyperDrive 🏎️</div>
+        <div class="logo">HYPER<span>DRIVE</span></div>
         <nav>
-            <a href="#">Início</a>
-            <a href="#">Modelos</a>
-            <a href="#">Sobre</a>
+            <a href="#" class="active">Feed</a>
+            <a href="#">Garagem</a>
+            <a href="#">Notícias</a>
+            <a href="#">Fórum</a>
         </nav>
     </header>
 
     <main class="container">
-        <h1>As Máquinas Mais Caras do Mundo</h1>
-        <p class="subtitle">Conheça os supercarros que ultrapassam as barreiras do design, velocidade e preço.</p>
-
-        <section class="posts">
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1617469767053-d3b503a0b980?auto=format&fit=crop&w=800&q=80" alt="Rolls-Royce Droptail" class="car-image">
-                <h2>1. Rolls-Royce La Rose Noire Droptail</h2>
-                <p class="price">Preço estimado: <strong>$30 Milhões</strong></p>
-                <p>Inspirado no romance e no mistério da rosa francesa 'Black Baccara', este exemplar ultra exclusivo lidera a lista de preços no mundo automotivo de luxo absoluto.</p>
-            </article>
-
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1600706432502-75a0e286b92b?auto=format&fit=crop&w=800&q=80" alt="Bugatti La Voiture Noire" class="car-image">
-                <h2>2. Bugatti La Voiture Noire</h2>
-                <p class="price">Preço estimado: <strong>$18.7 Milhões</strong></p>
-                <p>Uma obra de arte sobre rodas de fibra de carbono preta. Homenagem moderna ao lendário Type 57 SC Atlantic, combinando história com o monstruoso motor W16.</p>
-            </article>
-
-            <article class="card">
-                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" alt="Pagani Zonda HP Barchetta" class="car-image">
-                <h2>3. Pagani Zonda HP Barchetta</h2>
-                <p class="price">Preço estimado: <strong>$17.6 Milhões</strong></p>
-                <p>Com visual agressivo sem teto, para-brisa cortado e rodas traseiras parcialmente cobertas, este Pagani redefine a exclusividade do design italiano.</p>
-            </article>
+        <section class="hero-section">
+            <h1>Cultura Automotiva Suprema</h1>
+            <p class="subtitle">O ponto de encontro dos obcecados por engenharia, potência e as máquinas mais exclusivas do planeta.</p>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 HyperDrive Blog. Desenvolvido para amantes da velocidade.</p>
-    </footer>
+        <section class="posts-grid">
+            
+            <article class="card">
+                <div class="image-container">
+                    <span class="badge">Hyper Luxo</span>
+                    <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80" alt="Luxo Absoluto" class="car-image">
+                </div>
+                <div class="card-content">
+                    <h2>Rolls-Royce La Rose Noire Droptail</h2>
+                    <span class="price-tag">U$ 30.000.000</span>
+                    <p class="description">Inspirado na raríssima rosa escura francesa *Black Baccara*, este masterpiece feito sob medida representa o pináculo do design artesanal moderno. Cada detalhe da carroceria e do painel de madeira levou anos para ser esculpido à perfeição.</p>
+                    
+                    <div class="specs-table">
+                        <div class="spec-item"><p class="spec-label">Motor</p><p class="spec-value">6.75L V12 Twin-Turbo</p></div>
+                        <div class="spec-item"><p class="spec-label">Potência</p><p class="spec-value">593 cv</p></div>
+                        <div class="spec-item"><p class="spec-label">Produção</p><p class="spec-value">Apenas 4 unidades</p></div>
+                    </div>
 
-</body>
-</html>
+                    <div class="card-actions">
+                        <button class="action-btn">❤️ 1.2k Curtidas</button>
+                        <button class="action-btn">💬 342 Comentários</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="image-container">
+                    <span class="badge">Hypercar</span>
+                    <img src="https://images.unsplash.com/photo-1600706432556-3a5d93a0b92b?auto=format&fit=crop&w=1200&q=80" alt="Bugatti Hypercar" class="car-image">
+                </div>
+                <div class="card-content">
+                    <h2>Bugatti La Voiture Noire</h2>
+                    <span class="price-tag">U$ 18.700.000</span>
+                    <p class="description">Uma escultura viva esculpida inteiramente em fibra de carbono brilhante. Este modelo presta tributo ao lendário Type 57 SC Atlantic sumido na Segunda Guerra, ostentando as clássicas seis saídas de escape na traseira e o motor W16 quad-turbo.</p>
+                    
+                    <div class="specs-table">
+                        <div class="spec-item"><p class="spec-label">Motor</p><p class="spec-value">8.0L W16 Quad-Turbo</p></div>
+                        <div class="spec-item"><p class="spec-label">Potência</p><p class="spec-value">1500 cv</p></div>
+                        <div class="spec-item"><p class="spec-label">0 a 100 km/h</p><p class="spec-value">2.4 segundos</p></div>
+                    </div>
+
+                    <div class="card-actions">
+                        <button class="action-btn">❤️ 3.5k Curtidas</button>
+                        <button class="action-btn">💬 512 Comentários</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="image-container">
+                    <span class="badge">Exótico</span>
+                    <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1200&q=80" alt="Pagani Esportivo" class="car-image">
+                </div>
+                <div class="card-content">
+                    <h2>Pagani Zonda HP Barchetta</h2>
+                    <span class="price-tag">U$ 17.600.000</span>
+                    <p class="description">Idealizado pelo próprio Horacio Pagani, a Barchetta remove o teto completamente e reduz o para-brisa a uma lâmina aerodinâmica. O som do motor V12 aspirado da AMG ecoa direto na cabine, criando a experiência visceral mais pura do planeta.</p>
+                    
+                    <div class="specs-table">
+                        <div class="spec-item"><p class="spec-label">Motor</p>
+
